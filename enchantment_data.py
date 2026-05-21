@@ -28,7 +28,7 @@ ENCHANTMENTS = {
     "mending": {"max_level": 1, "item_multiplier": 4, "book_multiplier": 2},
     "curse_of_binding": {"max_level": 1, "item_multiplier": 8, "book_multiplier": 4},
     "curse_of_vanishing": {"max_level": 1, "item_multiplier": 8, "book_multiplier": 4},
-    "impaling": {"max_level": 5, "item_multiplier": 2, "book_multiplier": 1},
+    "impaling": {"max_level": 5, "item_multiplier": 4, "book_multiplier": 2},
     "riptide": {"max_level": 3, "item_multiplier": 4, "book_multiplier": 2},
     "loyalty": {"max_level": 3, "item_multiplier": 1, "book_multiplier": 1},
     "channeling": {"max_level": 1, "item_multiplier": 8, "book_multiplier": 4},

@@ -2,6 +2,7 @@ import heapq
 from item import Item
 import itertools
 counter = itertools.count()
+import calculator
 
 def create_heap(items):
     
@@ -21,6 +22,7 @@ def find_cheapest(item_heap):
     sac_item = heapq.heappop(item_heap)
 
     print(f"Combine {left_item[2]} with {sac_item[2]}")
+    print(f"Costs {calculator.find_cost(left_item[2], sac_item[2])} levels")
     print()
 
     new_item = left_item[2]

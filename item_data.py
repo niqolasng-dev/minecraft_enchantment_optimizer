@@ -1,0 +1,18 @@
+ITEMS = {
+    "sword": {"compatible_enchantments": ["sharpness", "smite", "bane_of_arthropods", "knockback", "fire_aspect", "looting", "unbreaking", "mending", "curse_of_vanishing", "sweeping_edge"]},
+    "axe": {"compatible_enchantments": ["sharpness", "smite", "bane_of_arthropods", "efficiency", "silk_touch", "unbreaking", "fortune", "mending", "curse_of_vanishing"]},
+    "pickaxe": {"compatible_enchantments": ["efficiency", "silk_touch", "unbreaking", "fortune", "mending", "curse_of_vanishing"]},
+    "shovel": {"compatible_enchantments": ["efficiency", "silk_touch", "unbreaking", "fortune", "mending", "curse_of_vanishing"]},
+    "hoe": {"compatible_enchantments": ["efficiency", "silk_touch", "unbreaking", "fortune", "mending", "curse_of_vanishing"]},
+    "bow": {"compatible_enchantments": ["power", "punch", "flame", "infinity", "unbreaking", "mending", "curse_of_vanishing"]},
+    "crossbow": {"compatible_enchantments": ["multishot", "piercing", "quick_charge", "unbreaking", "mending", "curse_of_vanishing"]},
+    "trident": {"compatible_enchantments": ["impaling", "riptide", "loyalty", "channeling", "unbreaking", "mending", "curse_of_vanishing"]},
+    "helmet": {"compatible_enchantments": ["protection", "fire_protection", "blast_protection", "projectile_protection", "thorns", "respiration", "aqua_affinity", "unbreaking", "mending", "curse_of_binding", "curse_of_vanishing"]},
+    "chestplate": {"compatible_enchantments": ["protection", "fire_protection", "blast_protection", "projectile_protection", "thorns", "unbreaking", "mending", "curse_of_binding", "curse_of_vanishing"]},
+    "leggings": {"compatible_enchantments": ["protection", "fire_protection", "blast_protection", "projectile_protection", "thorns", "swift_sneak", "unbreaking", "mending", "curse_of_binding", "curse_of_vanishing"]},
+    "boots": {"compatible_enchantments": ["protection", "fire_protection", "blast_protection", "projectile_protection", "thorns", "depth_strider", "frost_walker", "feather_falling", "soul_speed", "unbreaking", "mending", "curse_of_binding", "curse_of_vanishing"]},
+    "fishing_rod": {"compatible_enchantments": ["luck_of_the_sea", "lure", "unbreaking", "mending", "curse_of_vanishing"]},
+    "shears": {"compatible_enchantments": ["efficiency", "unbreaking", "mending", "curse_of_vanishing"]},
+    "shield": {"compatible_enchantments": ["unbreaking", "mending", "curse_of_vanishing"]},
+    "elytra": {"compatible_enchantments": ["unbreaking", "mending", "curse_of_binding", "curse_of_vanishing"]},
+}

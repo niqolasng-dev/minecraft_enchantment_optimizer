@@ -3,6 +3,7 @@ from item_data import ITEMS
 from item import Item
 import optimizer
 import itertools
+import os
 
 enchantment_counter = itertools.count()
 enchantment_dict = {}
@@ -16,15 +17,16 @@ item_selection = list(ITEMS.keys())[int(input("Enter the number of the item you 
 print()
 
 #dict holds the enchantments and the numbers that correspond to them
-for enchantment in ENCHANTMENTS:
+for enchantment in ITEMS[item_selection]["compatible_enchantments"]:
     enchantment_dict[next(enchantment_counter)] = enchantment
 enchantment_dict[next(enchantment_counter)] = "Done"
 
+#get all enchantments that the user wants to apply
 enchantment_selection = 0
 enchantments_list = []
 
-#get all enchantments that the user wants to apply
 while enchantment_dict[enchantment_selection] != "Done":
+    os.system('cls' if os.name == 'nt' else 'clear')
     for key, enchantment in enchantment_dict.items():
         print(f"{key}. {enchantment}")
 

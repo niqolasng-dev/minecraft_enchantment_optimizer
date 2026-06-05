@@ -3,6 +3,7 @@ from item import Item
 import itertools
 counter = itertools.count()
 import calculator
+import copy
 
 def create_heap(items):
     
@@ -30,7 +31,12 @@ def find_cheapest_cost(items, cache):
             total = left_cost + right_cost + last_combination_cost
             current_minimum = min(current_minimum, total)
 
+def combine_items(target, sac):
+    new_item = copy.deepcopy(target)
+    new_item.add_enchantments(sac.enchantments)
+    new_item.update_work(sac.prior_work)
 
+    return new_item, calculator.find_cost(target, sac)
 
 def find_cheapest_prior_work(item_heap):
     if item_heap[0][2].name != 'book':
@@ -42,14 +48,9 @@ def find_cheapest_prior_work(item_heap):
         
 
     print(f"Combine {left_item[2]} with {sac_item[2]}")
-    print()
-    #level_cost = calculator.find_cost(left_item[2], sac_item[2])
-    
+    print()    
 
-    new_item = left_item[2]
-    new_item.add_enchantments(sac_item[2].enchantments)
-    new_item.update_work(sac_item[2].prior_work)
-
+    new_item = combine_items(left_item, sac_item)
     heapq.heappush(item_heap, (new_item.prior_work, next(counter), new_item))
     return new_item
 

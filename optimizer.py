@@ -42,23 +42,24 @@ def find_cheapest_prior_work(item_heap):
         
 
     print(f"Combine {left_item[2]} with {sac_item[2]}")
+    print()
     #level_cost = calculator.find_cost(left_item[2], sac_item[2])
     
 
     new_item = left_item[2]
     new_item.add_enchantments(sac_item[2].enchantments)
     new_item.update_work(sac_item[2].prior_work)
-    print(f"{new_item} has {new_item.work}")
-    print()
 
     heapq.heappush(item_heap, (new_item.prior_work, next(counter), new_item))
-    #return level_cost
+    return new_item
 
 def merge_loop(item_heap):
     total_work = 0
+    final_item = None
     while len(item_heap) > 1:
-        find_cheapest_prior_work(item_heap)
+        final_item = find_cheapest_prior_work(item_heap)
 
+    print(f"{final_item}")
 
 def run_optimizer(items):
     merge_loop(create_heap(items))

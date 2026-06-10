@@ -13,7 +13,7 @@ for index, item in enumerate(ITEMS):
     print(f"{index}. {item}")
 
 print()
-item_selection = list(ITEMS.keys())[int(input("Enter the number of the item you wish to enchant:"))]
+item_selection = list(ITEMS.keys())[int(input("Enter the number of the item you wish to enchant: "))]
 print()
 
 #dict holds the enchantments and the numbers that correspond to them
@@ -43,4 +43,4 @@ for enchantment in enchantments_list:
     all_items.append(Item("book", {enchantment: ENCHANTMENTS[enchantment]["max_level"]}))
     
 
-optimizer.run_optimizer(all_items)
+optimizer.run_optimizer(all_items, True)

@@ -18,18 +18,42 @@ def create_heap(items):
 
 def find_cheapest_cost(items, cache):
     if len(items) == 1:
-        return (0, [])
+        return (0, [], items[0])
     
     current_minimum = float('inf')
+    best_steps = None
+    best_item = None
     for k in range(1, len(items)):
         for subset in itertools.combinations(items, k):
             left = subset
             right = tuple(item for item in items if item not in left)
-            left_cost, left_steps = find_cheapest_cost(left, cache)
-            right_cost, right_steps = find_cheapest_cost(right, cache)
-            last_combination_cost = left_cost + right_cost
+            
+            if left not in cache:
+                cost, steps, item = find_cheapest_cost(left, cache)
+                cache[left] = cost, steps, item
+
+            if right not in cache:
+                cost, steps, item = find_cheapest_cost(right, cache)
+                cache[right] = cost, steps, item
+
+            left_cost, left_steps, left_item = cache[left]
+            right_cost, right_steps, right_item = cache[right]
+
+            if right_item.name != "book" :
+                final_item, final_cost = combine_items(right_item, left_item)
+            else:
+                final_item, final_cost = combine_items(left_item, right_item)
+
+            last_combination_cost = final_cost
             total = left_cost + right_cost + last_combination_cost
-            current_minimum = min(current_minimum, total)
+            
+            if total < current_minimum:
+                current_minimum = total
+                best_steps = left_steps + right_steps + [(left_item, right_item, final_cost)]
+
+                best_item = final_item
+            
+    return current_minimum, best_steps, best_item
 
 def combine_items(target, sac):
     new_item = copy.deepcopy(target)
@@ -62,5 +86,11 @@ def merge_loop(item_heap):
 
     print(f"{final_item}")
 
-def run_optimizer(items):
-    merge_loop(create_heap(items))
+def run_optimizer(items, approach):
+    if approach is True:
+        final_cost, steps, final_item = find_cheapest_cost(tuple(items), {})
+        for target, sacrifice, cost in steps:
+            print(f"Combine {target} with {sacrifice}, cost is {cost} levels")
+        print(f"Final item is {final_item} \nTotal cost is {final_cost}")
+    else:
+        merge_loop(create_heap(items))
